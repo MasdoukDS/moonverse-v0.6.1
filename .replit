@@ -6,6 +6,7 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "npm start"]
+deploymentTarget = "cloudrun"
 
 [workflows]
 runButton = "Start Frontend"
@@ -18,3 +19,7 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd frontend && npm start"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
