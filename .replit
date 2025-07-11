@@ -6,3 +6,15 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "npm start"]
+
+[workflows]
+runButton = "Start Frontend"
+
+[[workflows.workflow]]
+name = "Start Frontend"
+author = 38984205
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd frontend && npm start"
